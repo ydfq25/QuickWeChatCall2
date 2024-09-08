@@ -9,12 +9,13 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # 检出代码
+        uses: actions/checkout@v3  # 更新到最新版本
 
       - name: Set up JDK
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3  # 更新到最新版本
         with:
           java-version: '11'  # 设置 Java 版本
+          distribution: 'adopt'  # 添加缺失的输入参数
 
       - name: Build with Gradle
         run: ./gradlew build  # 使用 Gradle 构建项目
@@ -23,7 +24,7 @@ jobs:
         run: ./gradlew assembleRelease  # 打包 APK
 
       - name: Upload APK
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3  # 更新到最新版本
         with:
           name: my-app-apk
           path: app/build/outputs/apk/release/app-release.apk  # 上传生成的 APK
