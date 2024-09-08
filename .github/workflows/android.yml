@@ -1,12 +1,7 @@
 name: Build and Package App
 
 on:
-  push:
-    branches:
-      - main  # 触发条件：当推送到 main 分支时
-  pull_request:
-    branches:
-      - main  # 触发条件：当对 main 分支发起拉取请求时
+  workflow_dispatch:  # 手动触发工作流
 
 jobs:
   build:
